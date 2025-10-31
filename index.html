@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subhojit Ghosal - Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1e40af;
+            --text-primary: #1f2937;
+            --text-secondary: #6b7280;
+            --bg-light: #f9fafb;
+            --bg-white: #ffffff;
+            --border: #e5e7eb;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--bg-white);
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            padding: 6rem 2rem 4rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            opacity: 0.95;
+        }
+
+        .hero .subtitle-small {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+
+        .hero .stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .hero .stat {
+            text-align: center;
+        }
+
+        .hero .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .hero .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Section */
+        section {
+            padding: 5rem 2rem;
+        }
+
+        section:nth-child(even) {
+            background: var(--bg-light);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            color: var(--text-primary);
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--primary);
+            margin: 1rem auto 0;
+        }
+
+        /* About Section */
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+        }
+
+        .about-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .highlight-card {
+            background: var(--bg-white);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .highlight-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .highlight-card h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .project-card {
+            background: var(--bg-white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 1.5rem;
+        }
+
+        .project-header h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-meta {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .project-body {
+            padding: 1.5rem;
+        }
+
+        .project-body p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .tag {
+            background: var(--bg-light);
+            color: var(--text-secondary);
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+
+        .project-link {
+            display: inline-block;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .project-link:hover {
+            color: var(--primary-dark);
+        }
+
+        /* Blog Section */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .blog-card {
+            background: var(--bg-white);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .blog-date {
+            color: var(--primary);
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .blog-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .blog-card p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .blog-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .blog-link:hover {
+            color: var(--primary-dark);
+        }
+
+        .blog-placeholder {
+            text-align: center;
+            padding: 3rem;
+            color: var(--text-secondary);
+        }
+
+        /* Contact Section */
+        .contact-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-content p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            background: var(--bg-white);
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .social-link:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .social-icon {
+            width: 24px;
+            height: 24px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text-primary);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .hero .stats {
+                gap: 1.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .projects-grid,
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .social-links {
+                flex-direction: column;
+            }
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <div class="logo">Subhojit Ghosal</div>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="hero">
+        <h1>Subhojit Ghosal</h1>
+        <div class="subtitle">Mathematics & Computing</div>
+        <div class="subtitle-small">Indian Institute of Technology Delhi</div>
+        <div class="stats">
+            <div class="stat">
+                <div class="stat-number">9.12</div>
+                <div class="stat-label">CGPA</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">JEE 115</div>
+                <div class="stat-label">Advanced Rank</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">1660</div>
+                <div class="stat-label">Codeforces Rating</div>
+            </div>
+        </div>
+    </div>
+
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About Me & My Story</h2>
+            <div class="about-content">
+                <p>
+                    I'm a B.Tech and M.Tech student in Mathematics & Computing at IIT Delhi, where I've consistently maintained a CGPA of 9.12 (Department Rank 3). My journey began with a passion for problem-solving that led me to excel in competitive mathematics and physics olympiads, eventually securing an All India Rank of 115 in JEE Advanced.
+                </p>
+                <p>
+                    At IIT Delhi, I've immersed myself in the fascinating intersection of mathematics, machine learning, and quantitative finance. My research interests span across graph neural networks, model checking of concurrent systems, and algorithmic trading strategies. I've worked on cutting-edge projects involving friend recommendation systems using multimodal GNNs, bipartite graph attention networks for personality prediction, and influence maximization in social networks.
+                </p>
+                <p>
+                    Beyond academics, I'm deeply passionate about quantitative finance and algorithmic trading. I've won the QRT Quant Quest Data Challenge, achieving an impressive 3.9 Sharpe ratio, and qualified for nationals in the WorldQuant International Quant Championship. My work on Leverage Rotation Strategies in global markets has shown how mathematical rigor can generate superior risk-adjusted returns.
+                </p>
+                <p>
+                    I'm also an active competitive programmer with an Expert rating on Codeforces (1660) and 1900+ on CodeChef, constantly sharpening my algorithmic thinking. Whether it's optimizing NP-hard problems, designing novel neural architectures, or developing quantitative trading strategies, I thrive on challenges that require deep mathematical insight and innovative solutions.
+                </p>
+            </div>
+
+            <div class="highlights">
+                <div class="highlight-card">
+                    <h3>🎓 Academic Excellence</h3>
+                    <p>IIT Delhi Merit Prize Award recipient (2022, 2023) for being in the top 7% of my cohort. Department Rank 3 with a CGPA of 9.12.</p>
+                </div>
+                <div class="highlight-card">
+                    <h3>🔬 Research Focus</h3>
+                    <p>Working on graph neural networks, concurrent systems verification, and novel algorithms for social network analysis under leading professors.</p>
+                </div>
+                <div class="highlight-card">
+                    <h3>💹 Quant Interests</h3>
+                    <p>Winner at QRT Quant Quest with 3.9 Sharpe ratio. Developed and backtested leverage rotation strategies across global markets.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title">My Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Stateless Model Checking of Concurrent Systems</h3>
+                        <div class="project-meta">Prof. Subodh Sharma | Jan 2025 - Ongoing</div>
+                    </div>
+                    <div class="project-body">
+                        <p>Developing novel view-equivalence concepts for Dynamic Partial Order Reduction (DPOR) to efficiently verify concurrent systems. Reduced time complexity from O(m^r) to O(C·poly(n)) by mitigating the NP-hard combinatorial explosion in thread interleavings.</p>
+                        <div class="project-tags">
+                            <span class="tag">Formal Verification</span>
+                            <span class="tag">Concurrency</span>
+                            <span class="tag">DPOR</span>
+                        </div>
+                        <a href="https://github.com/subhojit-ghosal-iitd" class="project-link">View on GitHub →</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Friend Recommendation using GNNs</h3>
+                        <div class="project-meta">Prof. Sandeep Kumar | Feb 2025 - May 2025</div>
+                    </div>
+                    <div class="project-body">
+                        <p>Implemented GraFRank, a multimodal Graph Neural Network combining profile, engagement, friending, and link features. Achieved 30% uplift in MRR & HitRate@50 compared to GraphSAGE on Facebook SNAP dataset.</p>
+                        <div class="project-tags">
+                            <span class="tag">GNN</span>
+                            <span class="tag">Social Networks</span>
+                            <span class="tag">PyTorch</span>
+                        </div>
+                        <a href="https://github.com/subhojit-ghosal-iitd" class="project-link">View on GitHub →</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Bipartite Graph Attention Network</h3>
+                        <div class="project-meta">Prof. Sayan Ranu | March 2025</div>
+                    </div>
+                    <div class="project-body">
+                        <p>Designed a graph attention architecture for personality prediction using user-product bipartite graphs. Secured 1st rank with 97% F1 Score, outperforming vanilla GNNs, GCNs, and GraphSAGE by 17-27%.</p>
+                        <div class="project-tags">
+                            <span class="tag">Graph Attention</span>
+                            <span class="tag">Deep Learning</span>
+                            <span class="tag">Residual Connections</span>
+                        </div>
+                        <a href="https://github.com/subhojit-ghosal-iitd" class="project-link">View on GitHub →</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Leverage Rotation Strategy</h3>
+                        <div class="project-meta">Prof. Vipul Goyal (CMU) | Dec 2024 - Jan 2025</div>
+                    </div>
+                    <div class="project-body">
+                        <p>Built a robust backtesting engine and implemented LRS across Indian, US, Japanese, and European markets. Achieved 19.0% annual return with 24.9% volatility, significantly outperforming static leverage strategies.</p>
+                        <div class="project-tags">
+                            <span class="tag">Quantitative Finance</span>
+                            <span class="tag">Backtesting</span>
+                            <span class="tag">Python</span>
+                        </div>
+                        <a href="https://github.com/subhojit-ghosal-iitd" class="project-link">View on GitHub →</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Influence Maximization in Networks</h3>
+                        <div class="project-meta">Prof. Sayan Ranu | March 2025</div>
+                    </div>
+                    <div class="project-body">
+                        <p>Solved NP-hard influence maximization with CELF++ algorithm under Independent Cascade model. Reduced complexity from O(NkR) to O(klogN + nR), achieving 100× speedups on million-node graphs with 63% spread guarantee.</p>
+                        <div class="project-tags">
+                            <span class="tag">Graph Algorithms</span>
+                            <span class="tag">Optimization</span>
+                            <span class="tag">Social Networks</span>
+                        </div>
+                        <a href="https://github.com/subhojit-ghosal-iitd" class="project-link">View on GitHub →</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Expression Evaluator & Compiler</h3>
+                        <div class="project-meta">Prof. Rahul Garg | Nov 2023</div>
+                    </div>
+                    <div class="project-body">
+                        <p>Built a compiler for E++ language with unlimited integer support (up to 10^5 digits). Implemented Karatsuba's Algorithm for O(L^1.59) multiplication and AVL Tree for O(log N) history access.</p>
+                        <div class="project-tags">
+                            <span class="tag">C++</span>
+                            <span class="tag">Compilers</span>
+                            <span class="tag">Data Structures</span>
+                        </div>
+                        <a href="https://github.com/subhojit-ghosal-iitd" class="project-link">View on GitHub →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="blog">
+        <div class="container">
+            <h2 class="section-title">My Blog</h2>
+            <div class="blog-placeholder">
+                <p>Blog posts coming soon! Check back for insights on quantitative finance, machine learning, and competitive programming.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Connect With Me</h2>
+            <div class="contact-content">
+                <p>I'm always open to discussing research opportunities, quantitative finance projects, or interesting problems in machine learning and algorithms.</p>
+                
+                <div class="social-links">
+                    <a href="https://github.com/subhojit-ghosal-iitd" class="social-link" target="_blank">
+                        <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                        GitHub
+                    </a>
+                    <a href="https://www.linkedin.com/in/subhojit-ghosal-iitd/" class="social-link" target="_blank">
+                        <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                        </svg>
+                        LinkedIn
+                    </a>
+                    <a href="mailto:subhojit.ghosal@example.com" class="social-link">
+                        <svg class="social-icon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"/>
+                        </svg>
+                        Email
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Subhojit Ghosal. All rights reserved.</p>
+    </footer>
+</body>
+</html>
