@@ -1,1 +1,0 @@
-# subhojit-ghosal-iitd.github.io
