@@ -1,0 +1,271 @@
+/* Base styles */
+@font-face {
+    font-family: 'MyCustomFont';
+    src: url('your-font.ttf') format('truetype');
+}
+
+body {
+    font-family: 'MyCustomFont', sans-serif;
+    background-color: var(--bg-color);
+    background-image: linear-gradient(to right, var(--grid-line-color) 1px, transparent 1px),
+                      linear-gradient(to bottom, var(--grid-line-color) 1px, transparent 1px);
+    background-size: 24px 24px;
+    margin: 0;
+    padding: 0;
+    transition: background 0.2s linear;
+}
+
+/* Light and dark mode variables */
+:root {
+    --bg-color: white;
+    --grid-line-color: rgba(0, 0, 255, 0.2); /* Blue for light mode */
+    --text-color: black;
+}
+
+body.dark-mode {
+    --bg-color: #292c35;
+    --grid-line-color: rgba(255, 255, 0, 0.4); /* Light yellow for dark mode */
+    --text-color: white;
+}
+
+/* Toggle button styling */
+.toggle-container {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.checkbox {
+    opacity: 0;
+    position: absolute;
+}
+
+.checkbox-label {
+    background-color: #111;
+    width: 50px;
+    height: 26px;
+    border-radius: 50px;
+    position: relative;
+    padding: 5px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.fa-moon {
+    color: #f1c40f;
+}
+
+.fa-sun {
+    color: #f39c12;
+}
+
+.checkbox-label .ball {
+    background-color: #fff;
+    width: 22px;
+    height: 22px;
+    position: absolute;
+    left: 6px;
+    top: 6px;
+    border-radius: 50%;
+    transition: transform 0.2s linear;
+}
+
+.checkbox:checked + .checkbox-label .ball {
+    transform: translateX(24px);
+}
+
+/* Content styling */
+h1 {
+    text-align: center;
+    margin-top: 1%;
+    font-size: 48px;
+    color: var(--text-color);
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 2%;
+}
+
+.left {
+    margin-right: 20px;
+}
+
+.photo {
+    width: 250px;
+    height: auto;
+    border-radius: 10px;
+    border: 2px solid transparent;
+}
+
+.right {
+    font-size: 30px;
+    color: var(--text-color);
+}
+
+.right h2 {
+    margin-top: 0;
+    line-height: 0.6;
+}
+
+.right p {
+    margin-top: 5px;
+    line-height: 0.2;
+}
+
+/* Button styles */
+.resume-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.resume-button {
+    display: inline-block;
+    padding: 15px 30px;
+    margin: 10px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Light mode styles */
+.resume-button.one-page {
+    background-color: lightcoral; /* Light red for light mode */
+    color: rgb(255, 255, 255);
+}
+
+.resume-button.two-page {
+    background-color: lightcoral; /* Light red for light mode */
+    color: rgb(255, 255, 255);
+}
+
+.resume-button.one-page:hover,
+.resume-button.two-page:hover {
+    background-color: #e74c3c; /* Darker red on hover */
+}
+
+/* Dark mode styles */
+body.dark-mode .resume-button.one-page,
+body.dark-mode .resume-button.two-page {
+    background-color: #e74c3c; /* A lighter red for dark mode */
+    color: white;
+}
+
+body.dark-mode .resume-button.one-page:hover,
+body.dark-mode .resume-button.two-page:hover {
+    background-color: lightcoral; /* Darker red on hover */
+}
+
+/* Navigation Menu Styles */
+.nav-menu {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.nav-menu li {
+    display: inline; /* Display items inline */
+    margin: 0 15px; /* Spacing between items */
+}
+
+.nav-button {
+    padding: 10px 20px;
+    background-color: #3498db; /* Blue background */
+    color: white; /* White text */
+    text-decoration: none; /* No underline */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s ease; /* Transition effect */
+}
+
+.nav-button:hover {
+    background-color: #2980b9; /* Darker blue on hover */
+}
+
+/* Notes Button Styles */
+.note-button {
+    padding: 15px 30px;
+    background-color: #2ecc71; /* Green background */
+    color: white; /* White text */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor */
+    transition: background-color 0.3s ease; /* Transition effect */
+    font-size: 20px; /* Font size */
+    display: block; /* Block display for centering */
+    margin: 20px auto; /* Center the button */
+}
+
+.note-button:hover {
+    background-color: #27ae60; /* Darker green on hover */
+}
+
+/* Responsive styles for mobile devices */
+@media (max-width: 768px) {
+    body {
+        font-size: 12px; /* Smaller base font size for mobile */
+    }
+
+    h1 {
+        font-size: 24px; /* Smaller title size for mobile */
+    }
+
+    .content {
+        flex-direction: column; /* Stack the left and right sections vertically */
+        align-items: center; /* Center align items */
+        padding: 10px; /* Add some padding */
+    }
+
+    .left {
+        margin: 0 0 6px 0; /* Remove right margin and add bottom margin */
+    }
+
+    .photo {
+        width: 100%; /* Make the image responsive */
+        max-width: 200px; /* Set a max width for the image */
+        height: auto; /* Maintain aspect ratio */
+    }
+
+    .right {
+        font-size: 14px; /* Smaller font size for mobile */
+    }
+
+    .right h2 {
+        font-size: 18px; /* Adjust heading size */
+        margin-top: 5px; /* Add some margin */
+    }
+
+    .right p {
+        font-size: 12px; /* Adjust paragraph size */
+        margin: 5px 0; /* Add some margin for spacing */
+    }
+
+    .toggle-container {
+        top: 10px; /* Adjust position for smaller screens */
+        left: 10px; /* Adjust position for smaller screens */
+        z-index: 10; /* Ensure toggle is above other elements */
+    }
+
+    /* Add padding to the toggle button */
+    .checkbox-label {
+        padding: 3px; /* Reduced padding */
+    }
+
+    .checkbox-label .ball {
+        background-color: #fff;
+        width: 22px;
+        height: 20px;
+        position: absolute;
+        left: 5px;
+        top: 6px;
+        border-radius: 50%;
+        transition: transform 0.2s linear;
+    }
+}
