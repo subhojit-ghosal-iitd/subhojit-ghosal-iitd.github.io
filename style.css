@@ -93,7 +93,10 @@ h1 {
 }
 
 .left {
-    margin-right: 20px;
+  display: flex;
+  flex-direction: column;   /* stack items top → bottom */
+  gap: 10px;                /* space between photo and LinkedIn */
+  margin-right: 20px;
 }
 
 .photo {
@@ -295,6 +298,19 @@ body.dark-mode .bio-box {
     transform: scale(0.75); /* Shrinks it to roughly 250px */
     transform-origin: top left;
     margin-top: 15px;
+}
+
+.linkedin-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.linkedin-overlay {
+  position: absolute;
+  inset: 0;               /* top:0; left:0; right:0; bottom:0 */
+  z-index: 10;
+  cursor: pointer;
+  background: rgba(0,0,0,0); /* invisible */
 }
 
 /* Email Button Styling (Purple) */

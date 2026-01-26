@@ -22,8 +22,8 @@
    </div>
 
    <h1 class="terminal-heading">
-    <span class="prompt">></span> Subhojit_Ghosal<span class="cursor">_</span>
-</h1>
+      <span class="prompt">></span> Subhojit_Ghosal<span class="cursor">_</span>
+   </h1>
 
    <nav>
       <ul class="nav-menu">
@@ -36,13 +36,19 @@
    <div class="content">
       <div class="left">
          <img src="your-photo.jpeg" alt="Subhojit's Photo" class="photo">
-         <script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
-         <div class="badge-base LI-profile-badge" data-locale="en_US" data-size="large" data-theme="light"
-            data-type="VERTICAL" data-vanity="subhojit-ghosal-iitd" data-version="v1">
-            <a class="badge-base__link LI-simple-link" href="https://in.linkedin.com/in/subhojit-ghosal-iitd">
-               <!-- Connect with me on LinkedIn -->
-            </a>
+
+         <script src="https://platform.linkedin.com/badges/js/profile.js" async defer></script>
+
+         <div class="linkedin-wrapper">
+            <div class="badge-base LI-profile-badge" data-locale="en_US" data-size="large" data-theme="light"
+               data-type="VERTICAL" data-vanity="subhojit-ghosal-iitd" data-version="v1">
+            </div>
+
+            <!-- Invisible full-cover link -->
+            <a href="https://in.linkedin.com/in/subhojit-ghosal-iitd" target="_blank" class="linkedin-overlay"></a>
          </div>
+
+
       </div>
       <div class="right">
          <div class="bio-box">
@@ -61,20 +67,60 @@
             <p>Always curious, always learning. Thanks for stopping by!</p>
          </div>
          <div class="resume-buttons">
-    <a href="subhojit-cv.pdf" target="_blank" class="resume-button one-page">My Resume</a>
-    <a href="sem-8-class-time-table.pdf" target="_blank" class="resume-button two-page">My Class Timetable</a>
-    <a href="mailto:your-email@iitd.ac.in" class="resume-button email-btn">Email Me</a>
-</div>
+            <a href="subhojit-cv.pdf" target="_blank" class="resume-button one-page">My Resume</a>
+            <a href="sem-8-class-time-table.pdf" target="_blank" class="resume-button two-page">My Timetable</a>
+            <a href="mailto:subhojitiitd@gmail.com" class="resume-button email-btn">Email Me</a>
+         </div>
       </div>
 
    </div>
 
-   <script>
+   <!-- <script>
       const checkbox = document.getElementById("checkbox");
       checkbox.addEventListener("change", () => {
          document.body.classList.toggle("dark-mode");
       });
-   </script>
+   </script> -->
+   <script>
+   const checkbox = document.getElementById("checkbox");
+   
+   checkbox.addEventListener("change", () => {
+      document.body.classList.toggle("dark-mode");
+      const isDarkMode = document.body.classList.contains("dark-mode");
+      
+      // 1. Target the wrapper, not the badge itself
+      const wrapper = document.querySelector(".linkedin-wrapper");
+      
+      if (wrapper) {
+         // 2. Nuke the old content and rebuild it from scratch
+         // This ensures no old 'iframe' junk is left behind to confuse the script
+         wrapper.innerHTML = `
+            <div class="badge-base LI-profile-badge" 
+                 data-locale="en_US" 
+                 data-size="large" 
+                 data-theme="${isDarkMode ? 'dark' : 'light'}" 
+                 data-type="VERTICAL" 
+                 data-vanity="subhojit-ghosal-iitd" 
+                 data-version="v1">
+               <a class="badge-base__link LI-simple-link" href="https://in.linkedin.com/in/subhojit-ghosal-iitd?trk=profile-badge"></a>
+            </div>
+            <a href="https://in.linkedin.com/in/subhojit-ghosal-iitd" target="_blank" class="linkedin-overlay"></a>
+         `;
+
+         // 3. Remove the old script tag if it exists
+         const oldScript = document.querySelector('script[src*="profile.js"]');
+         if (oldScript) oldScript.remove();
+
+         // 4. Create a NEW script tag with a timestamp
+         // The '?v=' + Date.now() forces the browser to reload and execute it fresh
+         const newScript = document.createElement("script");
+         newScript.src = "https://platform.linkedin.com/badges/js/profile.js?v=" + Date.now();
+         newScript.async = true;
+         newScript.defer = true;
+         document.body.appendChild(newScript);
+      }
+   });
+</script>
 </body>
 
 </html>
