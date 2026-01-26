@@ -61,6 +61,7 @@ body.dark-mode {
     color: #f39c12;
 }
 
+
 .checkbox-label .ball {
     background-color: #fff;
     width: 22px;
@@ -205,6 +206,116 @@ body.dark-mode .resume-button.two-page:hover {
 
 .note-button:hover {
     background-color: #27ae60; /* Darker green on hover */
+}
+
+.terminal-heading {
+    font-family: 'Courier New', monospace; /* or your preferred mono font */
+    color: #333;
+}
+.prompt {
+    color: #3498db; /* Blue prompt color */
+    margin-right: 10px;
+}
+.cursor {
+    animation: blink 1s step-end infinite;
+}
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+/* Dark mode adjustment */
+body.dark-mode .terminal-heading {
+    color: #fff;
+}
+
+/* About Me Box Styling */
+.bio-box {
+    background: rgba(255, 255, 255, 0.85); /* Semi-transparent white */
+    backdrop-filter: blur(8px); /* Frosted glass effect */
+    -webkit-backdrop-filter: blur(8px); /* Safari support */
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15); /* Soft shadow */
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    
+    /* Text formatting */
+    font-size: 21px; /* Overriding the parent 30px to be more readable */
+    line-height: 1.6;
+    margin-bottom: 25px;
+    max-width: 600px; /* Prevents line length from getting too long */
+}
+
+/* Fix for the overlapping text */
+.bio-box p {
+    line-height: 1.6 !important;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+/* Styling for the Heading inside the Bio Box */
+.bio-box h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-size: 32px;
+    border-bottom: 2px solid rgba(0,0,0,0.1);
+    padding-bottom: 10px;
+}
+
+/* Styling for the Quote */
+.bio-box blockquote {
+    border-left: 4px solid #4a90e2; /* Blue accent line */
+    margin: 25px 0;
+    padding: 10px 20px;
+    background: rgba(74, 144, 226, 0.1); /* Very faint blue background */
+    font-style: italic;
+    border-radius: 0 8px 8px 0;
+    color: #444;
+}
+
+/* Dark Mode Adjustments */
+body.dark-mode .bio-box h2 {
+    border-bottom: 2px solid rgba(255,255,255,0.1);
+}
+
+body.dark-mode .bio-box blockquote {
+    border-left-color: #f39c12; /* Yellow/Orange accent for dark mode */
+    background: rgba(243, 156, 18, 0.1); /* Faint yellow background */
+    color: #ddd;
+}
+
+/* Dark Mode Overrides for Bio Box */
+body.dark-mode .bio-box {
+    background: rgba(41, 44, 53, 0.85); /* Semi-transparent dark grey */
+    color: #ececec;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+}
+
+.LI-profile-badge {
+    transform: scale(0.75); /* Shrinks it to roughly 250px */
+    transform-origin: top left;
+    margin-top: 15px;
+}
+
+/* Email Button Styling (Purple) */
+.resume-button.email-btn {
+    background-color: #9b59b6; /* Amethyst Purple */
+    color: white;
+}
+
+.resume-button.email-btn:hover {
+    background-color: #8e44ad; /* Darker Purple on hover */
+    transform: translateY(-2px); /* Slight lift effect */
+}
+
+/* Dark Mode Override for Email Button */
+body.dark-mode .resume-button.email-btn {
+    background-color: #8e44ad;
+    color: white;
+}
+
+body.dark-mode .resume-button.email-btn:hover {
+    background-color: #9b59b6; /* Lighter Purple on hover in dark mode */
 }
 
 /* Responsive styles for mobile devices */

@@ -1,57 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Subhojit's Homepage</title>
-    <meta name="description" content="Subhojit Ghosal's portfolio showcasing projects in AI, data science, and quantitative analysis.">
-    <link rel="stylesheet" href="style.css">
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script> <!-- FontAwesome for icons -->
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Subhojit Ghosal</title>
+   <meta name="description"
+      content="Subhojit Ghosal's portfolio showcasing projects in AI, data science, and quantitative analysis.">
+   <link rel="stylesheet" href="style.css">
+   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
-    <div class="toggle-container">
-        <input type="checkbox" class="checkbox" id="checkbox">
-        <label for="checkbox" class="checkbox-label">
-            <i class="fas fa-moon"></i>
-            <i class="fas fa-sun"></i>
-            <span class="ball"></span>
-        </label>
-    </div>
+   <div class="toggle-container">
+      <input type="checkbox" class="checkbox" id="checkbox">
+      <label for="checkbox" class="checkbox-label">
+         <i class="fas fa-moon"></i>
+         <i class="fas fa-sun"></i>
+         <span class="ball"></span>
+      </label>
+   </div>
 
-    <h1>Welcome to Subhojit's Homepage</h1>
+   <h1 class="terminal-heading">
+    <span class="prompt">></span> Subhojit_Ghosal<span class="cursor">_</span>
+</h1>
 
-    <nav>
-        <ul class="nav-menu">
-            <li><a href="notes.html" class="nav-button">Access Notes</a></li>
-            <li><a href="https://valuesandvariances.com" class="nav-button">Finance Blog</a></li>
-            <li><a href="quant_resources.html" class="nav-button">Quant Resources</a></li>
-            <li><a href="apping_resources.html" class="nav-button">Apping Resources</a></li>
-        </ul>
-    </nav>
+   <nav>
+      <ul class="nav-menu">
+         <li><a href="notes.html" class="nav-button">Access My Notes</a></li>
+         <li><a href="https://github.com/subhojit-ghosal-iitd/Blogs" class="nav-button">My Blogs</a></li>
+         <li><a href="quant_resources.html" class="nav-button">Quant Resources</a></li>
+      </ul>
+   </nav>
 
-    <div class="content">
-        <div class="left">
-            <img src="your-photo.jpeg" alt="Subhojit's Photo" class="photo">
-        </div>
-        <div class="right">
-            <h2>Visitors and Stats</h2>
-            <p>Welcome to my page! Here are the latest stats:</p>
-            <a href="https://info.flagcounter.com/BTHA">
-                <img src="https://s01.flagcounter.com/countxl/BTHA/bg_FFFFFF/txt_000000/border_CCCCCC/columns_5/maxflags_30/viewers_0/labels_0/pageviews_1/flags_0/percent_0/" alt="Flag Counter" border="0">
+   <div class="content">
+      <div class="left">
+         <img src="your-photo.jpeg" alt="Subhojit's Photo" class="photo">
+         <script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
+         <div class="badge-base LI-profile-badge" data-locale="en_US" data-size="large" data-theme="light"
+            data-type="VERTICAL" data-vanity="subhojit-ghosal-iitd" data-version="v1">
+            <a class="badge-base__link LI-simple-link" href="https://in.linkedin.com/in/subhojit-ghosal-iitd">
+               <!-- Connect with me on LinkedIn -->
             </a>
+         </div>
+      </div>
+      <div class="right">
+         <div class="bio-box">
+            <h2>👋 About Me</h2>
 
-            <div class="resume-buttons">
-                <a href="resume1.pdf" target="_blank" class="resume-button one-page">my finance Resume</a>
-                <a href="resume2.pdf" target="_blank" class="resume-button two-page">my tech Resume</a>
-            </div>
-        </div>
-    </div>
+            <p>I am a 4th-year Dual Degree student in <strong>Mathematics and Computing</strong> at <strong>IIT
+                  Delhi</strong>.</p>
 
-    <script>
-        const checkbox = document.getElementById("checkbox");
-        checkbox.addEventListener("change", () => {
-            document.body.classList.toggle("dark-mode");
-        });
-    </script>
+            <p>I am passionate about <strong>Quant</strong> and <strong>Software</strong>. Whether it's building
+               low-latency systems, solving algorithmic puzzles, or diving into abstract math, I love problems that
+               stretch my brain.</p>
+
+            <p>Beyond the screen, I’m endlessly fascinated by the <strong>human mind</strong> and the stories people
+               carry. I also <strong>run — a lot</strong>. It’s my reset button and the way I stay grounded.</p>
+
+            <p>Always curious, always learning. Thanks for stopping by!</p>
+         </div>
+         <div class="resume-buttons">
+    <a href="subhojit-cv.pdf" target="_blank" class="resume-button one-page">My Resume</a>
+    <a href="sem-8-class-time-table.pdf" target="_blank" class="resume-button two-page">My Class Timetable</a>
+    <a href="mailto:your-email@iitd.ac.in" class="resume-button email-btn">Email Me</a>
+</div>
+      </div>
+
+   </div>
+
+   <script>
+      const checkbox = document.getElementById("checkbox");
+      checkbox.addEventListener("change", () => {
+         document.body.classList.toggle("dark-mode");
+      });
+   </script>
 </body>
+
 </html>
