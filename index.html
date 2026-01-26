@@ -22,8 +22,8 @@
    </div>
 
    <h1 class="terminal-heading">
-      <span class="prompt">></span> Subhojit_Ghosal<span class="cursor">_</span>
-   </h1>
+   <span class="prompt">&gt;</span> <span class="typewriter-text"></span><span class="cursor">_</span>
+</h1>
 
    <nav>
       <ul class="nav-menu">
@@ -121,6 +121,50 @@
       }
    });
 </script>
+
+
+<script>
+   // TYPEWRITER EFFECT
+   const textElement = document.querySelector(".typewriter-text");
+   const phrases = ["Subhojit_Ghosal", "Maths_and_Computing", "IIT_Delhi"];
+
+   let phraseIndex = 0;
+   let charIndex = 0;
+   let isDeleting = false;
+
+   function typeEffect() {
+      const currentPhrase = phrases[phraseIndex];
+
+      if (isDeleting) {
+         textElement.textContent = currentPhrase.substring(0, charIndex - 1);
+         charIndex--;
+      } else {
+         textElement.textContent = currentPhrase.substring(0, charIndex + 1);
+         charIndex++;
+      }
+
+      let typeSpeed = 100; 
+
+      if (isDeleting) {
+         typeSpeed = 50; 
+      }
+
+      if (!isDeleting && charIndex === currentPhrase.length) {
+         typeSpeed = 2000; // Pause at end of word
+         isDeleting = true;
+      } else if (isDeleting && charIndex === 0) {
+         isDeleting = false;
+         phraseIndex = (phraseIndex + 1) % phrases.length;
+         typeSpeed = 500; // Pause before new word
+      }
+
+      setTimeout(typeEffect, typeSpeed);
+   }
+
+   // Start the effect when page loads
+   document.addEventListener('DOMContentLoaded', typeEffect);
+</script>
+
 </body>
 
 </html>

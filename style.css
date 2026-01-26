@@ -212,9 +212,24 @@ body.dark-mode .resume-button.two-page:hover {
 }
 
 .terminal-heading {
-    font-family: 'Courier New', monospace; /* or your preferred mono font */
+    font-family: 'Courier New', monospace;
     color: #333;
+    /* Keeps the height fixed so the page doesn't jump when text is deleted */
+    min-height: 1.2em; 
 }
+
+.prompt {
+    color: #3498db;
+    margin-right: 5px;
+}
+
+.cursor {
+    display: inline-block;
+    background-color: #333;
+    width: 10px;
+    animation: blink 1s infinite;
+}
+
 .prompt {
     color: #3498db; /* Blue prompt color */
     margin-right: 10px;
@@ -222,13 +237,15 @@ body.dark-mode .resume-button.two-page:hover {
 .cursor {
     animation: blink 1s step-end infinite;
 }
-@keyframes blink {
-    50% { opacity: 0; }
-}
 
-/* Dark mode adjustment */
-body.dark-mode .terminal-heading {
-    color: #fff;
+/* Dark mode overrides */
+body.dark-mode .terminal-heading { color: #fff; }
+body.dark-mode .cursor { background-color: #fff; }
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
 }
 
 /* About Me Box Styling */
