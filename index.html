@@ -5,14 +5,13 @@
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>Subhojit Ghosal - IIT Delhi</title>
-   <meta name="description"
-      content="Subhojit Ghosal's personal webpage. Explore my notes, blogs, and quant resources.">
+   <meta name="description" content="Subhojit Ghosal's personal webpage. Explore my notes, blogs, and quant resources.">
 
    <link rel="icon" href="icon.png" type="image/png">
 
    <!-- Google Search Console verification -->
    <meta name="google-site-verification" content="Fp3OKksxpZ-uqfR5jEKOFmoFmmYNAC89cHa2L80L4zU" />
-   
+
    <link rel="stylesheet" href="style.css">
    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
@@ -28,12 +27,13 @@
    </div>
 
    <h1 class="terminal-heading">
-   <span class="prompt">&gt;</span> <span class="typewriter-text"></span><span class="cursor">_</span>
-</h1>
+      <span class="prompt">&gt;</span> <span class="typewriter-text"></span><span class="cursor">_</span>
+   </h1>
 
    <nav>
       <ul class="nav-menu">
-         <li><a href="https://github.com/subhojit-ghosal-iitd/subhojit-notes-iitd" class="nav-button">Access My Notes</a></li>
+         <li><a href="https://github.com/subhojit-ghosal-iitd/subhojit-notes-iitd" class="nav-button">Access My
+               Notes</a></li>
          <li><a href="https://github.com/subhojit-ghosal-iitd/Blogs" class="nav-button">My Blogs</a></li>
          <li><a href="quant_resources.html" class="nav-button">Quant Resources</a></li>
       </ul>
@@ -57,20 +57,22 @@
 
       </div>
       <div class="right">
+
          <div class="bio-box">
-            <h2>👋 About Me</h2>
-
-            <p>I am a 4th-year Dual Degree student in <strong>Mathematics and Computing</strong> at <strong>IIT
-                  Delhi</strong>.</p>
-
-            <p>I am passionate about <strong>Quant</strong> and <strong>Software</strong>. Whether it's building
-               low-latency systems, solving algorithmic puzzles, or diving into abstract math, I love problems that
-               stretch my brain.</p>
-
-            <p>Beyond the screen, I’m endlessly fascinated by the <strong>human mind</strong> and the stories people
-               carry. I also <strong>run — a lot</strong>. It’s my reset button and the way I stay grounded.</p>
-
-            <p>Always curious, always learning. Thanks for stopping by!</p>
+            <h2>About Me</h2>
+            <p>
+               Hello! I'm Subhojit Ghosal - welcome to my corner of the internet.<br>
+               I have an ongoing love story with mathematics; problems don’t scare me, they flirt.
+               When my mind gets loud, I run - sometimes 15+ km - just me, the road, and my thoughts racing each other.
+               I’m endlessly curious about technology and happiest when I’m building something from nothing.
+               Fast cars, fast ideas, long roads, deep questions - that’s the rhythm I live in.
+            </p>
+            <div class="quotes-wrapper">
+               <h2>My Favorite Quotes</h2>
+               <blockquote>
+                  <span class="quote-text"></span><span class="quote-cursor">&nbsp;</span>
+               </blockquote>
+            </div>
          </div>
          <div class="resume-buttons">
             <a href="subhojit-cv.pdf" target="_blank" class="resume-button one-page">My Resume</a>
@@ -81,26 +83,71 @@
 
    </div>
 
-   <!-- <script>
+
+   <script>
+      // QUOTE TYPEWRITER EFFECT
+      const quoteTextElement = document.querySelector(".quote-text");
+
+      // Edit your quotes here
+      const quotes = [
+         "\"Winning is the most important. Everything is consequence of that\" \n- Ayrton Senna",
+         "\"You can sleep when you're dead\" \n- Max Verstappen",
+      ];
+
+      let quoteIndex = 0;
+      let quoteCharIndex = 0;
+      let isQuoteDeleting = false;
+
+      function typeQuoteEffect() {
+         const currentQuote = quotes[quoteIndex];
+
+         if (isQuoteDeleting) {
+            // Deleting text
+            quoteTextElement.textContent = currentQuote.substring(0, quoteCharIndex - 1);
+            quoteCharIndex--;
+         } else {
+            // Typing text
+            quoteTextElement.textContent = currentQuote.substring(0, quoteCharIndex + 1);
+            quoteCharIndex++;
+         }
+
+         let typeSpeed = 50; // Normal typing speed
+
+         if (isQuoteDeleting) {
+            typeSpeed = 30; // Faster deleting speed
+         }
+
+         if (!isQuoteDeleting && quoteCharIndex === currentQuote.length) {
+            typeSpeed = 5000; // WAIT 5 SECONDS after finishing a quote
+            isQuoteDeleting = true;
+         } else if (isQuoteDeleting && quoteCharIndex === 0) {
+            isQuoteDeleting = false;
+            quoteIndex = (quoteIndex + 1) % quotes.length; // Move to next quote
+            typeSpeed = 500; // Short pause before typing next one
+         }
+
+         setTimeout(typeQuoteEffect, typeSpeed);
+      }
+
+      // Start the effect when the DOM is fully loaded
+      document.addEventListener('DOMContentLoaded', typeQuoteEffect);
+   </script>
+
+
+   <script>
       const checkbox = document.getElementById("checkbox");
+
       checkbox.addEventListener("change", () => {
          document.body.classList.toggle("dark-mode");
-      });
-   </script> -->
-   <script>
-   const checkbox = document.getElementById("checkbox");
-   
-   checkbox.addEventListener("change", () => {
-      document.body.classList.toggle("dark-mode");
-      const isDarkMode = document.body.classList.contains("dark-mode");
-      
-      // 1. Target the wrapper, not the badge itself
-      const wrapper = document.querySelector(".linkedin-wrapper");
-      
-      if (wrapper) {
-         // 2. Nuke the old content and rebuild it from scratch
-         // This ensures no old 'iframe' junk is left behind to confuse the script
-         wrapper.innerHTML = `
+         const isDarkMode = document.body.classList.contains("dark-mode");
+
+         // 1. Target the wrapper, not the badge itself
+         const wrapper = document.querySelector(".linkedin-wrapper");
+
+         if (wrapper) {
+            // 2. Nuke the old content and rebuild it from scratch
+            // This ensures no old 'iframe' junk is left behind to confuse the script
+            wrapper.innerHTML = `
             <div class="badge-base LI-profile-badge" 
                  data-locale="en_US" 
                  data-size="large" 
@@ -113,63 +160,63 @@
             <a href="https://in.linkedin.com/in/subhojit-ghosal-iitd" target="_blank" class="linkedin-overlay"></a>
          `;
 
-         // 3. Remove the old script tag if it exists
-         const oldScript = document.querySelector('script[src*="profile.js"]');
-         if (oldScript) oldScript.remove();
+            // 3. Remove the old script tag if it exists
+            const oldScript = document.querySelector('script[src*="profile.js"]');
+            if (oldScript) oldScript.remove();
 
-         // 4. Create a NEW script tag with a timestamp
-         // The '?v=' + Date.now() forces the browser to reload and execute it fresh
-         const newScript = document.createElement("script");
-         newScript.src = "https://platform.linkedin.com/badges/js/profile.js?v=" + Date.now();
-         newScript.async = true;
-         newScript.defer = true;
-         document.body.appendChild(newScript);
+            // 4. Create a NEW script tag with a timestamp
+            // The '?v=' + Date.now() forces the browser to reload and execute it fresh
+            const newScript = document.createElement("script");
+            newScript.src = "https://platform.linkedin.com/badges/js/profile.js?v=" + Date.now();
+            newScript.async = true;
+            newScript.defer = true;
+            document.body.appendChild(newScript);
+         }
+      });
+   </script>
+
+
+   <script>
+      // TYPEWRITER EFFECT
+      const textElement = document.querySelector(".typewriter-text");
+      const phrases = ["Subhojit_Ghosal", "Maths_and_Computing", "IIT_Delhi"];
+
+      let phraseIndex = 0;
+      let charIndex = 0;
+      let isDeleting = false;
+
+      function typeEffect() {
+         const currentPhrase = phrases[phraseIndex];
+
+         if (isDeleting) {
+            textElement.textContent = currentPhrase.substring(0, charIndex - 1);
+            charIndex--;
+         } else {
+            textElement.textContent = currentPhrase.substring(0, charIndex + 1);
+            charIndex++;
+         }
+
+         let typeSpeed = 100;
+
+         if (isDeleting) {
+            typeSpeed = 50;
+         }
+
+         if (!isDeleting && charIndex === currentPhrase.length) {
+            typeSpeed = 2000; // Pause at end of word
+            isDeleting = true;
+         } else if (isDeleting && charIndex === 0) {
+            isDeleting = false;
+            phraseIndex = (phraseIndex + 1) % phrases.length;
+            typeSpeed = 500; // Pause before new word
+         }
+
+         setTimeout(typeEffect, typeSpeed);
       }
-   });
-</script>
 
-
-<script>
-   // TYPEWRITER EFFECT
-   const textElement = document.querySelector(".typewriter-text");
-   const phrases = ["Subhojit_Ghosal", "Maths_and_Computing", "IIT_Delhi"];
-
-   let phraseIndex = 0;
-   let charIndex = 0;
-   let isDeleting = false;
-
-   function typeEffect() {
-      const currentPhrase = phrases[phraseIndex];
-
-      if (isDeleting) {
-         textElement.textContent = currentPhrase.substring(0, charIndex - 1);
-         charIndex--;
-      } else {
-         textElement.textContent = currentPhrase.substring(0, charIndex + 1);
-         charIndex++;
-      }
-
-      let typeSpeed = 100; 
-
-      if (isDeleting) {
-         typeSpeed = 50; 
-      }
-
-      if (!isDeleting && charIndex === currentPhrase.length) {
-         typeSpeed = 2000; // Pause at end of word
-         isDeleting = true;
-      } else if (isDeleting && charIndex === 0) {
-         isDeleting = false;
-         phraseIndex = (phraseIndex + 1) % phrases.length;
-         typeSpeed = 500; // Pause before new word
-      }
-
-      setTimeout(typeEffect, typeSpeed);
-   }
-
-   // Start the effect when page loads
-   document.addEventListener('DOMContentLoaded', typeEffect);
-</script>
+      // Start the effect when page loads
+      document.addEventListener('DOMContentLoaded', typeEffect);
+   </script>
 
 </body>
 
