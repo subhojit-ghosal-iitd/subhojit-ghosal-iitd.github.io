@@ -351,6 +351,38 @@ body.dark-mode .resume-button.email-btn:hover {
     background-color: #9b59b6; /* Lighter Purple on hover in dark mode */
 }
 
+
+
+
+
+
+/* Quote Animation Styles */
+.quote-text {
+    /* font-family: 'Courier New', monospace;  */
+    font-weight: 600;
+    white-space: pre-wrap;
+}
+
+.quote-cursor {
+    display: inline-block;
+    width: 6px;
+    background-color: #4a90e2; /* Matches your blue accent */
+    animation: blink 1s infinite;
+}
+
+/* Dark mode override for cursor */
+body.dark-mode .quote-cursor {
+    background-color: #f39c12; /* Matches your dark mode yellow accent */
+}
+
+/* Ensure the quote box doesn't collapse when text is deleted */
+.bio-box blockquote {
+    min-height: 60px; /* Adjust based on your font size */
+    display: flex;
+    align-items: center; /* Vertically center single-line quotes */
+}
+
+
 /* Responsive styles for mobile devices */
 @media (max-width: 768px) {
     body {
